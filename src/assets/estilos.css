@@ -1,0 +1,26 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1270px;
+    margin: auto;
+}
+header .logo {
+    width: 120px;
+}
+header .menu {
+    list-style: none;
+    padding: 0;
+    margin:0;
+    display: inline-flex;
+}
+header .menu li {
+    margin: 10px;
+}
+header .menu li a {
+    text-decoration: none;
+    color: gray;
+}
+header h2 {
+    color: gray;
+}
