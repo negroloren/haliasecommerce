@@ -35,23 +35,17 @@
 .header h2 {
     color: gray;
 }
-/***************************/
-.list_container {
-    position: absolute;
-    bottom: -2em;
-    text-align: center;
-    left: 0;
-    right: 0;
-    background: lightgray;
-    border-radius: 4px;
-    color: gray;
-}
+
 
 /*******************************/
 /* Main*/
 /*******************************/
 main {
     min-height: 500px;
+}
+.list_container {
+    max-width: 1250px;
+    margin: 2em auto;
 }
 
 /*******************************/
