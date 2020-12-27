@@ -1,26 +1,77 @@
-header {
+/*******************************/
+/* Header*/
+/*******************************/
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 1270px;
     margin: auto;
 }
-header .logo {
+.container_nav {
+    position: relative;
+}
+.header .logo {
     width: 120px;
 }
-header .menu {
+.header .menu {
     list-style: none;
     padding: 0;
     margin:0;
     display: inline-flex;
 }
-header .menu li {
+.header .menu li {
     margin: 10px;
 }
-header .menu li a {
+.header .menu li:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .menu li a {
     text-decoration: none;
     color: gray;
 }
-header h2 {
+.header h2 {
     color: gray;
+}
+/***************************/
+.list_container {
+    position: absolute;
+    bottom: -2em;
+    text-align: center;
+    left: 0;
+    right: 0;
+    background: lightgray;
+    border-radius: 4px;
+    color: gray;
+}
+
+/*******************************/
+/* Main*/
+/*******************************/
+main {
+    min-height: 500px;
+}
+
+/*******************************/
+/* Footer*/
+/*******************************/
+footer {
+    padding: 1em;
+    background: #84918F;
+    color: #efecea;
+}
+footer .footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.footer_column {
+    padding: 1em;
+}
+small.copy {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

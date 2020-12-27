@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NavBar from './components/NavBar';
 import './assets/estilos.css';
+import App from "./App";
 
-ReactDOM.render(<NavBar />,document.getElementById('root')
+ReactDOM.render(<App />,document.getElementById('root')
 );
