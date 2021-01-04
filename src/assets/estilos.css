@@ -69,3 +69,21 @@ small.copy {
     display: flex;
     justify-content: center;
 }
+
+
+/************************************/
+/* Carrito*/
+/************************************/
+.controles {
+    display: flex;
+    width: 100%;
+    max-width: 200px;
+}
+.controles div {
+    width: 100%;
+    text-align: center;
+}
+.agregar_carrito {
+    width: 100%;
+    max-width: 200px;
+}
