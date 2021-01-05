@@ -74,6 +74,10 @@ small.copy {
 /************************************/
 /* Carrito*/
 /************************************/
+
+.contador_carrito {
+    padding: 2em;
+}
 .controles {
     display: flex;
     width: 100%;
@@ -86,4 +90,43 @@ small.copy {
 .agregar_carrito {
     width: 100%;
     max-width: 200px;
+}
+
+/************************************/
+/* Items*/
+/************************************/
+.list_container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+}
+.list_container > h3 {
+    margin-left: 2em;
+}
+.list_container li {
+    width: 100%;
+    max-width: 280px;
+    margin: 2em;
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px whitesmoke;
+    overflow: hidden;
+    padding: 0 0 1em 0;
+}
+.list_container li p, .list_container li small, .list_container li h2 {
+    padding: 0 20px;
+    margin: 10px 0;
+}
+.list_container li a {
+    display: block;
+    margin-left: 20px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    color: #f89d61;
+}
+.list_container li img {
+    width: 100%;
 }
