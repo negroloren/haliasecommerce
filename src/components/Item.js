@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 
 const Item = (props) => {
     /*    
@@ -17,7 +17,7 @@ const Item = (props) => {
     })
     */
 
-   const {title,identificador,price,imagen} = props
+   const {title,identificador,price,imagen,url} = props
    
     return (
             <li id={identificador}>
@@ -25,7 +25,7 @@ const Item = (props) => {
                 <h2>{title}</h2>
                 <p>${price}</p>
                 <small>Identificador único: {identificador}</small>
-                <a href="/" title={title}>Detalles</a>
+                <Link to={"/productos/" + url} title={title}>Detalles</Link>
             </li>
     )
 }

@@ -1,25 +1,19 @@
 import React from 'react';
 import CartWidget from './CartWidget';
-
+import {NavLink} from 'react-router-dom'
 // Componente de tipo Flecha
 
 const NavBar = () => {
   return (
         <ul className="menu">
           <li>
-            <a href="/destacados">
-              <p>Destacados</p>
-            </a>
+            <NavLink to="/categorias">Categorías</NavLink>
           </li>
           <li>
-            <a href="/productos">
-              <p>Productos</p>
-            </a>
+            <NavLink to="/ofertas">Ofertas</NavLink>
           </li>
           <li>
-            <a href="/ofertas">
-              <p>Ofertas</p>
-            </a>
+            <NavLink to="/mi-cuenta">Mi cuenta</NavLink>
           </li>
           <li>
             <CartWidget/>

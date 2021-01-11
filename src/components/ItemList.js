@@ -1,7 +1,9 @@
-import React , {useEffect,useState} from 'react'
+import React from 'react'
 import Item from './Item'
 
-const ItemList = () => {
+const ItemList = (props) => {
+
+    const {productos} = props
 
     /*    
     const productos = [  
@@ -28,6 +30,7 @@ const ItemList = () => {
     );
     */
     
+    /*
     const [productos, setProductos] = useState([]);
     
     useEffect(()=>{
@@ -71,8 +74,7 @@ const ItemList = () => {
         })
 
     },[])
-
-
+    */
 
     return (
         <ul>
@@ -81,11 +83,11 @@ const ItemList = () => {
             { productos.length > 0 ? (
                 productos.map((producto) =>{
                     return (
-                        <Item identificador={producto.id} title={producto.title} price={producto.price} imagen={producto.pictureUrl}/>
+                        <Item url={producto.url} identificador={producto.id} title={producto.title} price={producto.price} imagen={producto.pictureUrl}/>
                     );
                 })
             ) : (
-                <p>No hay productos disponibles</p>
+                <p>Cargando productos disponibles</p>
             )}
         </ul>
     )

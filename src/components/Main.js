@@ -1,5 +1,13 @@
 import React from 'react';
 import ItemListContainer from './ItemListContainer';
+import {Route, Switch} from 'react-router-dom'
+
+import Home from './Home'
+import Ofertas from './Ofertas'
+import Categorias from './Categorias'
+import MiCuenta from './MiCuenta'
+import ItemDetailContainer from './ItemDetailContainer';
+
 
 const Main = () => {
 /*
@@ -18,9 +26,27 @@ const Main = () => {
     },[]) // si esta vacío el array, el efecto secundario solo pasa 1 vez
 */
 
+
     return (
         <main>
-            <ItemListContainer greeting="Listado de Productos"/>
+            <Switch>
+                <Route exact path="/">
+                    <Home/>
+                    <ItemListContainer greeting="Listado de Productos" />
+                </Route>
+                <Route path="/productos/:url">
+                    <ItemDetailContainer />
+                </Route>
+                <Route path="/categorias">
+                    <Categorias/>
+                </Route>
+                <Route path="/ofertas">
+                    <Ofertas/>
+                </Route>
+                <Route path="/mi-cuenta">
+                    <MiCuenta/>
+                </Route>
+            </Switch>
         </main>
     )
 }

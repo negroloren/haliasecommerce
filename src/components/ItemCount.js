@@ -1,9 +1,12 @@
 import React , {useState} from 'react';
 
-const ItemCount = (props) => {
+const ItemCount = ({stock,initial}) => {
     // Limite por stock
-    const {stock,initial} = props
-    const [contador, setContador] = useState(parseInt(initial));
+    //const {stock,initial} = props
+
+    const [contador, setContador] = useState(initial)
+
+    console.log("Inicial es: "+ initial +" y el Stock es: "+ stock)
     
     const aumentarContador = () => {
         setContador(contador + 1)

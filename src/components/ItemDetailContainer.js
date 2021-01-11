@@ -1,29 +1,20 @@
-import React , {useEffect,useState} from 'react'
-import ItemList from './ItemList'
+import React , {useEffect, useState} from 'react'
+import ItemDetail from './ItemDetail'
+import {useParams} from 'react-router-dom'
+import ItemCount from './ItemCount'
 
-const ItemListContainer = (props) => {
+const ItemDetailContainer = () => {
+
+    const [item,setItem] = useState([])
     
-    const {greeting} = props
-
-    const [items,setItems] = useState([])
-
-
-
-/*
-    useEffect(()=>{
-        
-        fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA1168")
-        .then(res=>res.json())
-        .then(res=>{
-            setItems(res.results)
-        })
-    })
-*/
-
+    const parametros = useParams()
+    console.log(parametros)
+    const url = parametros.url
+    console.log(url)
 
     useEffect(() => {
         
-        const promesa = new Promise((resolver,rechazar)=>{
+        const getItems = new Promise((resolver,rechazar)=>{
     
             setTimeout(()=>{
                 let codigo = 200
@@ -60,46 +51,54 @@ const ItemListContainer = (props) => {
                 console.log("Compruebo si me llegan los productos")
                 console.log(listaProductos)
 
+                // Acá filtro por el productos seleccionado
+
+                const productoSeleccionado = listaProductos.find(producto => producto.url === url)
+
                 if(codigo < 400){
-                    resolver(listaProductos)
+                    resolver(productoSeleccionado)
                 } else{
                     rechazar("Hubo un error en el pedido")
                 }
             },2000)
         })
     
-        promesa
+        getItems
         .then((res)=>{
             console.log("Salio todo bien")
-            setItems(res)
+            setItem(res)
         })
         .catch(()=>{
             console.log("Salio todo mal")
         })
     
-    }, [])
+    }, [url])
     
 
+
+
     return (
-        <div className="list">
-            <h3>Filtros</h3>
-            <ul className="list_filter">
-                { items.length > 0 ? (
-                    items.map((producto) =>{
-                        return (
-                            <li>{producto.category}</li>
-                        );
-                    })
-                ) : (
-                    <p>Cargando categorías</p>
-                )}
-            </ul>
-            <div className="list_container">
-                <h3>{greeting}</h3>
-                <ItemList productos={items}/>
+        <>
+            { item.url === url ? (
+            <div className="detalle_producto" id={item.id}>
+                <h3>Detalle del producto</h3>
+                <ItemDetail 
+                    identificador={item.id} 
+                    titulo={item.title} 
+                    precio={item.price} 
+                    imagen={item.pictureUrl} 
+                    categoria={item.category} 
+                    descripcion={item.description}
+                    stock={item.stock}
+                    url={item.url}
+                    inicial={item.initial} />
+                    <ItemCount stock={item.stock} initial={item.initial}/>
             </div>
-        </div>
+            ) : ( 
+                <h3>Cargando Detalles</h3>
+            )}
+        </>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer
