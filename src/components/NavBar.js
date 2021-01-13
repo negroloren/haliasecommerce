@@ -1,22 +1,24 @@
 import React from 'react';
 import CartWidget from './CartWidget';
 import {NavLink} from 'react-router-dom'
+import CategoryFilter from './CategoryFilter';
+import cuenta from '../imagenes/user.svg'
+import ofertas from '../imagenes/descuento.svg'
 // Componente de tipo Flecha
 
 const NavBar = () => {
+
   return (
         <ul className="menu">
-          <li>
-            <NavLink to="/categorias">Categorías</NavLink>
+          <CategoryFilter/>
+          <li className="icon">
+            <NavLink to="/ofertas"><img src={ofertas} alt="ofertas" width="20px"/></NavLink>
           </li>
-          <li>
-            <NavLink to="/ofertas">Ofertas</NavLink>
+          <li className="icon">
+            <NavLink to="/carrito"><CartWidget/></NavLink>
           </li>
-          <li>
-            <NavLink to="/mi-cuenta">Mi cuenta</NavLink>
-          </li>
-          <li>
-            <CartWidget/>
+          <li className="icon">
+            <NavLink to="/mi-cuenta"><img src={cuenta} alt="mi-cuenta" width="20px"/></NavLink>
           </li>
         </ul>
   )

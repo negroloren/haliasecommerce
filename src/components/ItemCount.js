@@ -1,9 +1,7 @@
 import React , {useState} from 'react';
 
 const ItemCount = ({stock,initial}) => {
-    // Limite por stock
-    //const {stock,initial} = props
-
+    
     const [contador, setContador] = useState(initial)
 
     console.log("Inicial es: "+ initial +" y el Stock es: "+ stock)

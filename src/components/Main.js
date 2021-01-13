@@ -1,47 +1,59 @@
-import React from 'react';
+import React , {useState,useEffect}from 'react';
 import ItemListContainer from './ItemListContainer';
 import {Route, Switch} from 'react-router-dom'
-
 import Home from './Home'
 import Ofertas from './Ofertas'
-import Categorias from './Categorias'
 import MiCuenta from './MiCuenta'
 import ItemDetailContainer from './ItemDetailContainer';
+import Carrito from './Carrito';
 
+const Main = ({productos}) => {
 
-const Main = () => {
-/*
-    const [contador, setContador] = useState(0);
-    const aumentarContador = () => {
-        setContador(contador + 1)
-    }
-    const restarContador = () => {
-        setContador(contador - 1)
-    }
+const [items,setItems] = useState([])
 
-    // el primer parametro siempre es una funcion, la segunda siempres es un array
-    useEffect(()=>{
-        // este es mi efecto "secundario", que pasa siempre despues del render
-        console.log("efecto secundario")
-    },[]) // si esta vacío el array, el efecto secundario solo pasa 1 vez
-*/
+useEffect(() => {
+    
+    const promesa = new Promise((resolver,rechazar)=>{
+        setTimeout(()=>{
+            let codigo = 200
+            console.log("Compruebo si me llegan los productos")
+            
+            if(codigo < 400){
+                resolver(productos)
+            } else {
+                rechazar("Hubo un error en el pedido")
+            }
+        },2000)
+    })
+    promesa
+    .then((res)=>{
+        console.log("Salio todo bien")
+        setItems(res)
+    })
+    .catch(()=>{
+        console.log("Salio todo mal")
+    })
 
+}, [productos])
 
     return (
         <main>
             <Switch>
                 <Route exact path="/">
                     <Home/>
-                    <ItemListContainer greeting="Listado de Productos" />
+                    <ItemListContainer greeting="Listado de Productos" listaProductos={items}/>
                 </Route>
-                <Route path="/productos/:url">
-                    <ItemDetailContainer />
+                <Route exact path="/productos/:url">
+                    <ItemDetailContainer listaProductos={items}/>
                 </Route>
-                <Route path="/categorias">
-                    <Categorias/>
+                <Route exact path="/categorias/:id">
+                    <ItemListContainer listaProductos={items}/>
                 </Route>
                 <Route path="/ofertas">
                     <Ofertas/>
+                </Route>
+                <Route path="/carrito">
+                    <Carrito/>
                 </Route>
                 <Route path="/mi-cuenta">
                     <MiCuenta/>

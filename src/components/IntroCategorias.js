@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Categorias = () => {
+const IntroCategorias = () => {
     return (
         <div>
-            Categorías
+            
         </div>
     )
 }
 
-export default Categorias
+export default IntroCategorias

@@ -5,11 +5,12 @@ import {NavLink} from 'react-router-dom'
 
 
 const Header = () => {
+
     return (
         <header className="header">
             <NavLink exact to="/"><img src={logo} alt="halias" width="120" className="logo"/></NavLink>
             <div className="container_nav">
-                <NavBar/>
+                <NavBar />
             </div>
         </header>
     )

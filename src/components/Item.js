@@ -1,31 +1,21 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import bookmark from '../imagenes/bookmark.svg'
 
-const Item = (props) => {
-    /*    
-    const promesa = new Promise((res,rej) => {
-        
-        const codigo = 200
-        const respuesta = [1,2,3]
-        
-        if (codigo===200){
-            res(respuesta)
-        } else {
-            rej()
-        }
-        console.log(promesa)
-    })
-    */
-
-   const {title,identificador,price,imagen,url} = props
+const Item = ({title,identificador,price,imagen,url}) => {
    
     return (
-            <li id={identificador}>
-                <img src={imagen} alt={title}/>
-                <h2>{title}</h2>
-                <p>${price}</p>
-                <small>Identificador único: {identificador}</small>
-                <Link to={"/productos/" + url} title={title}>Detalles</Link>
+            <li id={identificador} className="item">
+                <div className="imagen"><img src={imagen} alt={title}/></div>
+                <div className="detalles">
+                    <h2>{title}</h2>
+                    <p>${price}</p>
+                    <small>Identificador único: {identificador}</small>
+                    <div className="item-links">
+                        <Link to={"/productos/" + url} title={title}>Detalles</Link>
+                        <span className="bockmark"><img src={bookmark} alt="bookmark" width="20px"/></span>
+                    </div>
+                </div>
             </li>
     )
 }
