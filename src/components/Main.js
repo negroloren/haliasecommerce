@@ -6,6 +6,7 @@ import Ofertas from './Ofertas'
 import MiCuenta from './MiCuenta'
 import ItemDetailContainer from './ItemDetailContainer';
 import Carrito from './Carrito';
+import Elementos from './Elementos'
 
 const Main = ({productos}) => {
 
@@ -41,13 +42,16 @@ useEffect(() => {
             <Switch>
                 <Route exact path="/">
                     <Home/>
-                    <ItemListContainer greeting="Listado de Productos" listaProductos={items}/>
+                    <ItemListContainer greeting="Filtra tus productos preferidos" listaProductos={items}/>
                 </Route>
-                <Route exact path="/productos/:url">
+                <Route path="/productos/:url">
                     <ItemDetailContainer listaProductos={items}/>
                 </Route>
                 <Route exact path="/categorias/:id">
-                    <ItemListContainer listaProductos={items}/>
+                    <ItemListContainer greeting="Filtra tus productos preferidos" listaProductos={items}/>
+                </Route>
+                <Route path="/elementos">
+                    <Elementos/>
                 </Route>
                 <Route path="/ofertas">
                     <Ofertas/>

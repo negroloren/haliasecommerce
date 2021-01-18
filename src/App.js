@@ -33,7 +33,7 @@ const listaProductos = [
         category: "Energía Solar Térmica",
         category_url: "energia_solar_termica",
         url:"termosolar",
-        descrpition: "El agua ingresa al termotanque solar y empieza a pasar por los tubos de vacío. Estos, gracias a la radiación solar, calientan el agua y dan inicio a un proceso de circulación natural por el cual el agua caliente al ser menos densa sube y el agua fría densa baja. El componente clave del sistema Termosolar son los tubos de vidrio al vacío de alta tecnología que absorben no solamente los rayos solares directos (radiación solar directa) sino tambi?n el calor del medio ambiente, incluso cuando está nublado (radiación solar difusa). Es importante que los tanques de almacenamiento sean de acero inoxidable internamente y cuenten con un revestimiento de poliuretano para asegurarse de que la temperatura del agua no se pierda, especialmente durante la noche.",
+        description: "El agua ingresa al termotanque solar y empieza a pasar por los tubos de vacío. Estos, gracias a la radiación solar, calientan el agua y dan inicio a un proceso de circulación natural por el cual el agua caliente al ser menos densa sube y el agua fría densa baja. El componente clave del sistema Termosolar son los tubos de vidrio al vacío de alta tecnología que absorben no solamente los rayos solares directos (radiación solar directa) sino tambi?n el calor del medio ambiente, incluso cuando está nublado (radiación solar difusa). Es importante que los tanques de almacenamiento sean de acero inoxidable internamente y cuenten con un revestimiento de poliuretano para asegurarse de que la temperatura del agua no se pierda, especialmente durante la noche.",
         catalog: "https://www.halias.com.ar/archivos/termosolar.pdf",
 
     },
@@ -47,7 +47,7 @@ const listaProductos = [
         category: "Calefacción",
         category_url: "calefaccion",
         url:"caldera-main-5",
-        descrpition: "La caldera mural a gas Main 5 es un equipo eficiente pensado para viviendas de m2 reducidos, donde ahorrar espacio es tan importante como ahorrar energía. Cubre a la perfección todas las necesidades de calefacción y agua caliente, requiriendo un mínimo espacio de instalación. Es una caldera ideal para departamentos, fácil de usar y de instalar junto con diferentes sistemas de calefacción por agua, como radiadores o piso radiante.",
+        description: "La caldera mural a gas Main 5 es un equipo eficiente pensado para viviendas de m2 reducidos, donde ahorrar espacio es tan importante como ahorrar energía. Cubre a la perfección todas las necesidades de calefacción y agua caliente, requiriendo un mínimo espacio de instalación. Es una caldera ideal para departamentos, fácil de usar y de instalar junto con diferentes sistemas de calefacción por agua, como radiadores o piso radiante.",
         catalog: "https://www.halias.com.ar/archivos/caldera-main-5.pdf",
 
     },
@@ -61,10 +61,9 @@ const listaProductos = [
         category: "Calefacción",
         category_url: "calefaccion",
         url:"radiador-pluss",
-        descrpition: "Diseño y calidad europea que aseguran unóptimo rendimiento y ahorro de energía.Fabricados en aluminio inyectado en una sola pieza, con tratamiento anticorrosivo que brinda mayor durabilidad.",
+        description: "Diseño y calidad europea que aseguran unóptimo rendimiento y ahorro de energía.Fabricados en aluminio inyectado en una sola pieza, con tratamiento anticorrosivo que brinda mayor durabilidad.",
         catalog: "https://www.halias.com.ar/archivos/caldera-main-5.pdf",
-
-    },
+    }
 ]
 
 const App = () => {

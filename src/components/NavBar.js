@@ -12,6 +12,9 @@ const NavBar = () => {
         <ul className="menu">
           <CategoryFilter/>
           <li className="icon">
+            <NavLink to="/elementos">Elementos</NavLink>
+          </li>
+          <li className="icon">
             <NavLink to="/ofertas"><img src={ofertas} alt="ofertas" width="20px"/></NavLink>
           </li>
           <li className="icon">
