@@ -1,12 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import ItemCount from './ItemCount'
 import bookmark from '../imagenes/bookmark.svg'
+import CartContext from './CartContext'
 
-const ItemDetail = ({identificador,titulo,precio,imagen,categoria,descripcion,catalogo,stock,url,inicial}) => {
 
-    const [mostrar,setMostrar] = useState("")
-    console.log("Cambio el valor del estado mostrar por: " + mostrar)
-   
+
+const ItemDetail = ({item,identificador,titulo,precio,imagen,categoria,descripcion,catalogo,stock,url,inicial}) => {
+    
+    const [mostrar,setMostrar] = useState("")   
+	const { addToCart } = useContext(CartContext);
+
     return (
             <div className="item-detalle">
                 <div className="slider-img-producto"></div>
@@ -21,7 +24,8 @@ const ItemDetail = ({identificador,titulo,precio,imagen,categoria,descripcion,ca
                         <span className="bockmark"><img src={bookmark} alt="bookmark" width="20px"/></span>
                     </div>
                     <small>Categoría: {categoria} | Identificador único: {identificador}</small>
-                    <ItemCount className={mostrar} stock={stock} initial={inicial} id={identificador} mostrarAgregar={setMostrar} />
+                    <small className="advertencia_carrito">{mostrar}</small>
+                    <ItemCount precio={precio} item={item} stock={stock} initial={inicial} id={identificador} mostrarAgregar={setMostrar} addToCart={addToCart} />
                 </div>
             </div>
 

@@ -13,7 +13,6 @@ const ItemDetailContainer = ({listaProductos}) => {
             if(url){
                 const productoSeleccionado = listaProductos.find(producto => producto.url === url)
                 console.log(productoSeleccionado)
-                console.log(url)
                 setItem(productoSeleccionado)
             } else {
                 setItem(listaProductos)
@@ -37,7 +36,8 @@ const ItemDetailContainer = ({listaProductos}) => {
                     catalogo={item.catalog}
                     stock={item.stock}
                     url={item.url}
-                    inicial={item.initial} />
+                    inicial={item.initial} 
+                    item={item}/>
             </div>
             ) : ( 
                 <p className="advertencia">Cargando Detalles</p>

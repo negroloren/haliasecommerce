@@ -28,9 +28,6 @@ const CategoryFilter = () => {
 
     return (
         <>
-            <li>
-                <NavLink exact to="/">Todas</NavLink>
-            </li>
             { categorias.map((categoria) =>{
                 return (
                     <li>
@@ -39,6 +36,9 @@ const CategoryFilter = () => {
                 );
                 })
             }
+            <li>
+                <NavLink exact to="/">Todos</NavLink>
+            </li>
         </>
     )
 }

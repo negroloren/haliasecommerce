@@ -5,8 +5,10 @@ import Home from './Home'
 import Ofertas from './Ofertas'
 import MiCuenta from './MiCuenta'
 import ItemDetailContainer from './ItemDetailContainer';
-import Carrito from './Carrito';
 import Elementos from './Elementos'
+import Contacto from './Contacto';
+import Blog from './Blog';
+import Cart from './Cart';
 
 const Main = ({productos}) => {
 
@@ -57,10 +59,16 @@ useEffect(() => {
                     <Ofertas/>
                 </Route>
                 <Route path="/carrito">
-                    <Carrito/>
+                    <Cart/>
                 </Route>
                 <Route path="/mi-cuenta">
                     <MiCuenta/>
+                </Route>
+                <Route path="/contacto">
+                    <Contacto/>
+                </Route>
+                <Route path="/blog">
+                    <Blog/>
                 </Route>
             </Switch>
         </main>

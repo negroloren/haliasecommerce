@@ -12,16 +12,13 @@ const NavBar = () => {
         <ul className="menu">
           <CategoryFilter/>
           <li className="icon">
-            <NavLink to="/elementos">Elementos</NavLink>
+            <NavLink to="/ofertas" title="Ofertas"><img src={ofertas} alt="ofertas" width="20px"/></NavLink>
           </li>
           <li className="icon">
-            <NavLink to="/ofertas"><img src={ofertas} alt="ofertas" width="20px"/></NavLink>
+            <NavLink to="/carrito" title="Carrito"><CartWidget/></NavLink>
           </li>
           <li className="icon">
-            <NavLink to="/carrito"><CartWidget/></NavLink>
-          </li>
-          <li className="icon">
-            <NavLink to="/mi-cuenta"><img src={cuenta} alt="mi-cuenta" width="20px"/></NavLink>
+            <NavLink to="/mi-cuenta" title="Mi cuenta"><img src={cuenta} alt="mi-cuenta" width="20px"/></NavLink>
           </li>
         </ul>
   )

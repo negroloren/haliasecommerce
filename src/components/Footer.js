@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBar from './NavBar'
+import NavBarFooter from './NavBarFooter'
 
 const Footer = () => {
     return (
@@ -15,7 +15,7 @@ const Footer = () => {
                 </div>
                 <div className="footer_column">
                     <h3>Mapa del Sitio:</h3>
-                    <NavBar/>
+                    <NavBarFooter/>
                 </div>
             </div>
             <small className="copy">Halias &copy; | 2021 - Todos los derechos reservados</small>

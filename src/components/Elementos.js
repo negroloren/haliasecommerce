@@ -1,12 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import EvntClick from './elementos/EvntClick'
 import EvntGuardar from './elementos/EvntGuardar'
 import EvntSalir from './elementos/EvntSalir'
 import EvntEstados from './elementos/EvntEstados'
 import Input from './elementos/Input'
-import EvntProductos from './elementos/EvntProductos'
+import ElemProductos from './elementos/ElemProductos'
+import ElemContexto from './elementos/ElemContexto'
+import Contexto from './Contexto'
+
+
+
 
 const Elementos = () => {
+
+
+    const [usuarios, setUsuarios] = useState(Contexto)
+    
+    /*
+    const agregarUsuario = () => {
+        setUsuarios([...usuarios,{id:3,nombre:"Magui"}])
+    }
+    */
+
     return (
         <div className="intro">
             <h2>Componentes vistos en clase</h2>
@@ -32,11 +47,22 @@ const Elementos = () => {
                 <EvntEstados/>
             </div>
             <div className="eventos">
-                <h3>Cambio de estados</h3>
-                <EvntProductos/>
+                <h3>Cambio de estados de un Array</h3>
+                <ElemProductos/>
+            </div>
+            <div className="eventos">
+                <h3>Aplicando Contexto</h3>    
+                {/*
+                <Provider value={{usuarios}}>
+                    <button onClick={agregarUsuario}>Agregar Usuario</button>
+                    <ElemContexto/>
+                </Provider>                
+                */}
+                <ElemContexto/>
             </div>
         </div>
     )
 }
+
 
 export default Elementos

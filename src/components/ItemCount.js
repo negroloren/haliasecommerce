@@ -1,13 +1,14 @@
 import React , {useState} from 'react';
 import {Link} from 'react-router-dom'
+import CartContext from './CartContext'
 
-const ItemCount = ({stock,initial, id, mostrarAgregar}) => {
+const ItemCount = ({item,precio,stock,initial,id,mostrarAgregar,addToCart, actualizar}) => {
     
     const [contador, setContador] = useState(initial) // Controla el contador
     const [textoCarrito,setTextoCarrito] = useState("Agregar al Carrito") // Cambia nombre del botón a "Actualizando carrito"
     const [bloqueoControles,setBloqueoControles] = useState("controles") // Bloque los controles del contador y los hce desaparecer
-    const [funCarrito,setFunCarrito] = useState("agregar_carrito") // Cambia el botón de Agregar al Carrito por Finalizar compra
-    
+    const [funCarrito,setFunCarrito] = useState("") // Cambia el botón de Agregar al Carrito por Finalizar compra
+
     const aumentarContador = () => {
         setContador(contador + 1)
     }
@@ -20,29 +21,18 @@ const ItemCount = ({stock,initial, id, mostrarAgregar}) => {
     } else if(contador < 1){
         setContador(initial)
     }
-
-    const enviarProducto = () => {
-        console.log("El producto a comprar es ID:"+ id)
-    }
-
     const onAdd = () => {
-        // alert("Item enviado al carrito: ID="+ id + " por " + contador +" unidades")
         setTimeout(()=>{
             console.log("Agregando productos al carrito")
             setTextoCarrito("Agregando productos...")
             setTimeout(()=>{
                 // Acá debo eliminar el boton de agregar al carrito
-                mostrarAgregar("Item enviado al carrito: ID="+ id + " por " + contador +" unidades")
-                console.log("Carrito actualizado")
+                mostrarAgregar("Producto enviado al carrito por " + contador +" unidades")
                 //setTextoCarrito("Terminar mi compra")
-                console.log("Ahora borramos el boton de Agregar al Carrito")
                 setBloqueoControles("ocultar")
                 setFunCarrito("terminar_compra")
-                console.log("Ahora muestro el Botón de Finalizar Compra")
-                console.log(mostrarAgregar)
             },1500)
         },300)
-
     }
 
     return (
@@ -52,19 +42,27 @@ const ItemCount = ({stock,initial, id, mostrarAgregar}) => {
                 <div>{contador}</div>
                 <button onClick={ aumentarContador }>+</button>
             </div>
-            <div className="controles_carrito">
-                {/*<button className="agregar_carrito" onClick={onAdd}>{textoCarrito}</button>*/}
-
-
+            <div className={bloqueoControles}>
+                <button id="agregar" className={funCarrito} onClick={onAdd}>{textoCarrito}</button> 
+            </div>
+            <Link to="/carrito"><button id="finalizar" className={funCarrito}
+                            onClick={() => { 
+                                    addToCart({item, precio, contador, id})
+                                }
+                            }>Finalizar Compra</button></Link>
+            {/*<div className="controles_carrito">
                 { funCarrito === "agregar_carrito" ? (
                         <button className={funCarrito} onClick={onAdd}>{textoCarrito}</button> 
-                    ) : (
-                        <Link to="/carrito"><button className={funCarrito} onClick={enviarProducto}>Finalizar Compra</button></Link>
+                    ) 
+                    : (
+                        <Link to="/carrito"><button className={funCarrito}
+                            onClick={() => { 
+                                    addToCart({item, precio, contador, id}) 
+                                }
+                            }>Finalizar Compra</button></Link>
                     )
                 }
-
-
-            </div>
+            </div>*/}
         </div>
     )
 }
