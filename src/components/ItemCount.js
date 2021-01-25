@@ -2,7 +2,7 @@ import React , {useState} from 'react';
 import {Link} from 'react-router-dom'
 import CartContext from './CartContext'
 
-const ItemCount = ({item,precio,stock,initial,id,mostrarAgregar,addToCart, actualizar}) => {
+const ItemCount = ({item,precio,stock,initial,id,mostrarAgregar,addToCart}) => {
     
     const [contador, setContador] = useState(initial) // Controla el contador
     const [textoCarrito,setTextoCarrito] = useState("Agregar al Carrito") // Cambia nombre del botón a "Actualizando carrito"
@@ -50,19 +50,6 @@ const ItemCount = ({item,precio,stock,initial,id,mostrarAgregar,addToCart, actua
                                     addToCart({item, precio, contador, id})
                                 }
                             }>Finalizar Compra</button></Link>
-            {/*<div className="controles_carrito">
-                { funCarrito === "agregar_carrito" ? (
-                        <button className={funCarrito} onClick={onAdd}>{textoCarrito}</button> 
-                    ) 
-                    : (
-                        <Link to="/carrito"><button className={funCarrito}
-                            onClick={() => { 
-                                    addToCart({item, precio, contador, id}) 
-                                }
-                            }>Finalizar Compra</button></Link>
-                    )
-                }
-            </div>*/}
         </div>
     )
 }

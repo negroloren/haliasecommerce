@@ -5,8 +5,7 @@ import CartContext from './CartContext'
 const ItemCarrito = ({item, contador}) => {
 
     const { id, title, pictureUrl, price } = item
-    const { removeItem, actualizar } = useContext(CartContext);
-    //const nuevaCantidadp = parseInt(actualizar) + parseInt(contador)
+    const { removeItem } = useContext(CartContext);
 
     return (
         <li className="item">

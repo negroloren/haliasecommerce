@@ -6,7 +6,8 @@ const CartState = ({children}) => {
 
    const [cart,setCart] = useState([])
    const [total, setTotal] = useState(0)
-   const [actualizar,setActualizar] = useState(0)
+   const [cantItems, setCantItems] = useState(0)
+   //const [actualizar,setActualizar] = useState(0)
    
    const addToCart = ({item, contador, precio, id}) => {
        
@@ -61,12 +62,19 @@ const CartState = ({children}) => {
         totales.map( totalPagar => totalActual += totalPagar)
         setTotal(totalActual)
 
+        let totalCarrito = 0
+        let cantidadItems = cart.length
+        console.log("Cantidad de productos: " + cantidadItems)
+        let cantidadTotales = cart.map( producto => producto.contador)
+        cantidadTotales.map(t => totalCarrito += t)
+        console.log(totalCarrito)
+        setCantItems(totalCarrito)
 
     }, [cart])
     
 
     return (
-        <CartContext.Provider value={{cart,total,addToCart,clearItem,removeItem, actualizar, setActualizar}}>
+        <CartContext.Provider value={{cart,total,addToCart,clearItem,removeItem, cantItems}}>
             {children}
         </CartContext.Provider>
     )
