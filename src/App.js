@@ -6,8 +6,7 @@ import {BrowserRouter} from 'react-router-dom'
 import CartState from './components/CartState'
 import {firestore} from './firebaseConfig'
 
-// Productos
-
+/*
 const listaProductos = [  
     {
         id: 123123,
@@ -66,6 +65,8 @@ const listaProductos = [
         catalog: "https://www.halias.com.ar/archivos/caldera-main-5.pdf",
     }
 ]
+*/
+
 const App = () => {
 
     // Hago el llamado a Firebase
@@ -75,70 +76,24 @@ const App = () => {
         console.log(firestore)    
         const db = firestore
         const collection = db.collection("productos")
-        const query = collection.get()
-        /*
-        // Para filtrar firebase por  Categoria por ejemplo
-        const query = collection
-                                .where("categoryId","==",2)
-                                .where("price",">",3000)
-                                .get()
-        */
-        query
-        .then(({docs})=>{
-            
-            //const arr = []
-            /*
-            console.log(docs)
-            //const productos_array = res.docs
-            docs.forEach(doc => {
-                //console.log(doc.id)
-                //console.log(doc.data)
-                const producto_final = {
-                    id : doc.id,
-                    ...doc.data()
-                }
-                // Cargo los productos en un estado
-                setProductos([...productos,producto_final])
-            })
-            */
-            /*
-            docs.forEach(doc => {
-                    //console.log(doc.id)
-                    //console.log(doc.data)
-                    const producto_final = {
-                        id : doc.id,
-                        ...doc.data()
-                    }
-                    // Cargo los productos en un estado
-                    arr.push(producto_final)
-                })
-                console.log(arr)
-                */
-               setProductos(docs.map(doc=>({id:doc.id,...doc.data()})))
+        //const query = collection.get()
+        collection.get().then(querySnapshot=>{
+            const items = (querySnapshot.docs.map(doc => ({...doc.data(), id: doc.id})));
+        setProductos(items)
+        console.log("Firestore conectado correctamente")
         })
         .catch((err)=>{
             console.log("Fallo el llamado a Firebase" + err)
         })
-    }, [productos])
+
+    }, [])
     
 
     return(
         <BrowserRouter>
             <CartState>
-                <Header />
-                <Main productos={listaProductos}/>
-                <div>
-                    <ul>
-                        {productos.length > 0
-                        ? productos.map(producto=>(
-                            <li key={producto.id}>
-                                {producto.nombre}
-                                <button>agregar</button>
-                            </li>
-                        ))
-                        : null }
-                    </ul>
-                </div>
+                <Header/>
+                <Main productos={productos}/>
                 <Footer/>
             </CartState>
         </BrowserRouter>

@@ -1,7 +1,7 @@
 import React , {useState,useEffect}from 'react';
 import ItemListContainer from './ItemListContainer';
 import {Route, Switch} from 'react-router-dom'
-import Home from './Home'
+import Intro from './Intro'
 import Ofertas from './Ofertas'
 import MiCuenta from './MiCuenta'
 import ItemDetailContainer from './ItemDetailContainer';
@@ -43,13 +43,14 @@ useEffect(() => {
         <main>
             <Switch>
                 <Route exact path="/">
-                    <Home/>
+                    <Intro/>
                     <ItemListContainer greeting="Filtra tus productos preferidos" listaProductos={items}/>
                 </Route>
                 <Route path="/productos/:url">
                     <ItemDetailContainer listaProductos={items}/>
                 </Route>
                 <Route exact path="/categorias/:id">
+                    <Intro/>
                     <ItemListContainer greeting="Filtra tus productos preferidos" listaProductos={items}/>
                 </Route>
                 <Route path="/elementos">

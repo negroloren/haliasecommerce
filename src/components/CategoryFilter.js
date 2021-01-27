@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {NavLink} from 'react-router-dom'
 
 const CategoryFilter = () => {
 
+    
     const categorias = [  
         {
             id: 1,
@@ -25,20 +26,18 @@ const CategoryFilter = () => {
             category_url: "calefaccion",
         }
       ]
+      
 
     return (
         <>
             { categorias.map((categoria) =>{
                 return (
-                    <li>
-                        <NavLink key={categoria.id} to={"/categorias/"+ categoria.category_url}>{categoria.category}</NavLink>
+                    <li key={categoria.id}>
+                        <NavLink to={"/categorias/"+ categoria.category_url}>{categoria.category}</NavLink>
                     </li>
                 );
                 })
             }
-            <li>
-                <NavLink exact to="/">Todos</NavLink>
-            </li>
         </>
     )
 }

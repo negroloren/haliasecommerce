@@ -11,7 +11,7 @@ const CartState = ({children}) => {
    
    const addToCart = ({item, contador, precio, id}) => {
        
-       let productoExistente = cart.find(producto => producto.item.id == id)
+       let productoExistente = cart.find(producto => producto.item.id === id)
        
        if (productoExistente) {
            console.log("Este producto ya existe")
@@ -50,13 +50,6 @@ const CartState = ({children}) => {
 
     useEffect(() => {
 
-        /*
-        console.log("Efecto actualizar: " + actualizar)
-        let cantidadVieja = cart.map( producto => producto.contador)
-        let sumarCantidades = parseInt(actualizar) + parseInt(cantidadVieja)
-        console.log("sumo las cantidades: " + sumarCantidades)
-        */
-       
         let totalActual = 0
         const totales = cart.map( producto => producto.item.price * producto.contador )
         totales.map( totalPagar => totalActual += totalPagar)

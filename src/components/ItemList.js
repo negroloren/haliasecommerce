@@ -14,7 +14,7 @@ const ItemList = ({productos}) => {
                 })
             )
             : (
-                <p className="advertencia">Sin productos para esta categoría</p>
+                <p className="advertencia">Cargando productos.</p>
             )
             }
         </ul>

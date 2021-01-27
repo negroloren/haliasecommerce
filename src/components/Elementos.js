@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import EvntClick from './elementos/EvntClick'
 import EvntGuardar from './elementos/EvntGuardar'
 import EvntSalir from './elementos/EvntSalir'
@@ -6,7 +6,6 @@ import EvntEstados from './elementos/EvntEstados'
 import Input from './elementos/Input'
 import ElemProductos from './elementos/ElemProductos'
 import ElemContexto from './elementos/ElemContexto'
-import Contexto from './Contexto'
 
 
 
@@ -14,7 +13,7 @@ import Contexto from './Contexto'
 const Elementos = () => {
 
 
-    const [usuarios, setUsuarios] = useState(Contexto)
+    //const [usuarios, setUsuarios] = useState(Contexto)
     
     /*
     const agregarUsuario = () => {

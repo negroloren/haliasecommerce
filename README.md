@@ -32,3 +32,6 @@ Si la aplicación no se abre en su navegador predeterminado de forma automática
 La página se volverá a cargar si realiza modificaciones. \
 También verá cualquier error de pelusa en la consola.
 
+* uno
+* dos
+* tres

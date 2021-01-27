@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React from 'react'
 import Producto from './Producto'
 
 
@@ -16,7 +16,7 @@ const productos = [
 
 const EvntProductos = () => {
 
-    const [valor,setValor] = useState("")
+    //const [valor,setValor] = useState("")
 
 
     const agregarProducto = () => {
