@@ -1,6 +1,8 @@
 import React, { useContext,useState } from 'react'
 import { Link } from 'react-router-dom';
+import BuyerForm from './BuyerForm';
 import CartContext from './CartContext'
+import CartDetail from './CartDetail';
 import ItemCarrito from './ItemCarrito'
 
 const Cart = () => {
@@ -14,11 +16,6 @@ const Cart = () => {
     }
     const cancelar = () => {
         setVaciar(false)
-    }
-
-    const finalizarCompra = () => {
-        // Acá debo mostrar un formulario 
-        setformulario(true)
     }
 
 
@@ -46,69 +43,41 @@ const Cart = () => {
                     </div>
                         { cart.length > 0 ? (  
                             <div className="contenedor_detalles_carrito">
-                            <div className="detalles_carrito barrer_izq">
-                                <ul className="item_carrito_total">
-                                        {cart.map((producto) =>{
-                                            return (
-                                                <li key={producto.id} className="aparecer_top">
-                                                    <p>{producto.item.title}</p>
-                                                    <span className="separador"></span>
-                                                    <p>x {producto.contador}</p>
-                                                </li>
-                                                )
-                                            })
-                                        }
-                                </ul>
-                                <div className="finalizar_carrito">
-                                    <span>Total a Pagar: ${total}</span>
-                                    <div className="botones_carrito">
-                                        <button className="btn_finalizar_compra" onClick={() => finalizarCompra()}>Finalizar Compra</button>
-                                        <button className="btn_vaciar_carrito" onClick={() => vaciarCarrito()}>Vaciar Carrito</button>
-                                    </div>
-                                </div>
-                                <div className={"popup vaciar " + vaciar}>
-                                    <div>
-                                         <h3>¿Seguro deseas vaciar tu carrito?</h3>
-                                        <div>
-                                            <button className="btn_vaciar_carrito" onClick={() => clearItem()}>Vaciar Carrito</button>
-                                            <button className="btn_cancelar" onClick={() => cancelar()}>Cancelar</button>
+                                <div className="detalles_carrito barrer_izq">
+                                    <ul className="item_carrito_total">
+                                            {cart.map((producto) =>{
+                                                return (
+                                                    <li key={producto.id} className="aparecer_top">
+                                                        <p>{producto.item.title}</p>
+                                                        <span className="separador"></span>
+                                                        <p>x {producto.contador}</p>
+                                                    </li>
+                                                    )
+                                                })
+                                            }
+                                    </ul>
+                                    <div className="finalizar_carrito">
+                                        <span>Total a Pagar: ${total}</span>
+                                        <div className="botones_carrito">
+                                            <Link to="/finalizar-compra" className="btn_finalizar_compra">Finalizar Compra</Link>
+                                            <button className="btn_vaciar_carrito" onClick={() => vaciarCarrito()}>Vaciar Carrito</button>
                                         </div>
                                     </div>
-                                </div>
-                                <div className={"popup vaciar " + formulario}>
-                                    <div>
-                                         <h3>Formulario</h3>
-                                        <form>
-                                            <fieldset>
-                                                <label></label>
-                                                <input type="text"/>
-                                                <label></label>
-                                                <input type="email"/>
-                                            </fieldset>
-                                            <fieldset>
-                                                <label></label>
-                                                <input type="tel"/>
-                                                <label></label>
-                                                <input type="text"/>
-                                            </fieldset>
-                                            <fieldset>
-                                                <label></label>
-                                                <input type="text"/>
-                                            </fieldset>
-                                            <fieldset>
-                                                <label></label>
-                                                <input type="textarea"/>
-                                            </fieldset>
+                                    <div className={"popup vaciar " + vaciar}>
+                                        <div>
+                                                <h3>¿Seguro deseas vaciar tu carrito?</h3>
                                             <div>
-                                                <input type="submit" value="Enviar pedido"/>
+                                                <button className="btn_vaciar_carrito" onClick={() => clearItem()}>Vaciar Carrito</button>
+                                                <button className="btn_cancelar" onClick={() => cancelar()}>Cancelar</button>
                                             </div>
-                                            
-                                        </form>
+                                        </div>
+                                    </div>
+                                    <div className={"popup vaciar " + formulario}>
+                                        <BuyerForm/>
                                     </div>
                                 </div>
                             </div>
-                            </div>
-                            ) : (
+                        ) : (
                             <>
                             </>
                             )

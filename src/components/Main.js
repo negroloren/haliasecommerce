@@ -9,6 +9,7 @@ import Elementos from './Elementos'
 import Contacto from './Contacto';
 import Blog from './Blog';
 import Cart from './Cart';
+import BuyCart from './BuyCart';
 
 const Main = ({productos}) => {
 
@@ -70,6 +71,9 @@ useEffect(() => {
                 </Route>
                 <Route path="/blog">
                     <Blog/>
+                </Route>
+                <Route path="/finalizar-compra">
+                    <BuyCart/>
                 </Route>
             </Switch>
         </main>
