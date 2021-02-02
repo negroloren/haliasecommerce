@@ -20,6 +20,14 @@ const BuyerForm = () => {
         console.log(telefono)
     }
 
+    const enviarOrden = (e) => {
+        e.stopPropagation()
+        e.preventDefault()
+        console.log("click " + nombre + email + telefono)
+    }
+
+
+
     return (
         <form>
             <fieldset>
@@ -33,7 +41,7 @@ const BuyerForm = () => {
                 <input onChange={obtenerTelefono}type="tel" value={telefono}/>
             </fieldset>
             <div>
-                <input type="submit" value="Enviar pedido"/>
+                <input type="submit" value="Enviar pedido" onClick={enviarOrden}/>
             </div>  
         </form>
     )

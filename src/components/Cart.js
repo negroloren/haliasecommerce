@@ -5,6 +5,7 @@ import CartContext from './CartContext'
 import CartDetail from './CartDetail';
 import ItemCarrito from './ItemCarrito'
 
+
 const Cart = () => {
 
     const { cart, total, clearItem } = useContext(CartContext)
@@ -17,6 +18,7 @@ const Cart = () => {
     const cancelar = () => {
         setVaciar(false)
     }
+
 
 
     return (
