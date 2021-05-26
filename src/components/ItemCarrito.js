@@ -12,7 +12,7 @@ const ItemCarrito = ({item, contador}) => {
             <div className="imagen"><img src={pictureUrl} alt={title}/></div>
             <div className="descripcion_producto_carrito">
                 <h2>{title} - </h2>
-                <small>Identificador único: {id}</small>
+                <small>ID: {id}</small>
             </div>
             <span className="separador"></span>
             <div className="cantidad_carrito">

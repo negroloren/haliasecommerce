@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import ItemList from './ItemList'
 import {useParams} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 const ItemListContainer = ({greeting,listaProductos}) => {
 
@@ -34,12 +35,16 @@ useEffect (()=>{
 },[listaProductos,id])
 
     return (
-        <div className="list">
+        <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="list">
             <div className="list_container">
                 <h3>{greeting}</h3>
                 <ItemList productos={items}/>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

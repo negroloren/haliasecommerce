@@ -1,6 +1,10 @@
 import React , {useEffect, useState} from 'react'
 import ItemDetail from './ItemDetail'
 import {useParams} from 'react-router-dom'
+import {motion} from 'framer-motion'
+
+
+let transition = {duration: 3, ease: [0.43, 0.13 , 0.23, 0.96]}
 
 const ItemDetailContainer = ({listaProductos}) => {
 
@@ -22,10 +26,14 @@ const ItemDetailContainer = ({listaProductos}) => {
 
 
     return (
-        <>
+        <motion.div         
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={transition}
+        >
             { item.url === url ? (
             <div className="detalle_producto" id={item.id}>
-                <h3>Detalle del producto</h3>
                 <ItemDetail 
                     identificador={item.id} 
                     titulo={item.title} 
@@ -42,7 +50,7 @@ const ItemDetailContainer = ({listaProductos}) => {
             ) : ( 
                 <p className="advertencia">Cargando Detalles</p>
             )}
-        </>
+        </motion.div>
     )
 }
 

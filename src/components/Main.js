@@ -42,40 +42,40 @@ useEffect(() => {
 
     return (
         <main>
-            <Switch>
-                <Route exact path="/">
-                    <Intro/>
-                    <ItemListContainer greeting="Filtra tus productos preferidos" listaProductos={items}/>
-                </Route>
-                <Route path="/productos/:url">
-                    <ItemDetailContainer listaProductos={items}/>
-                </Route>
-                <Route exact path="/categorias/:id">
-                    <Intro/>
-                    <ItemListContainer greeting="Filtra tus productos preferidos" listaProductos={items}/>
-                </Route>
-                <Route path="/elementos">
-                    <Elementos/>
-                </Route>
-                <Route path="/ofertas">
-                    <Ofertas/>
-                </Route>
-                <Route path="/carrito">
-                    <Cart/>
-                </Route>
-                <Route path="/mi-cuenta">
-                    <MiCuenta/>
-                </Route>
-                <Route path="/contacto">
-                    <Contacto/>
-                </Route>
-                <Route path="/blog">
-                    <Blog/>
-                </Route>
-                <Route path="/finalizar-compra">
-                    <BuyCart/>
-                </Route>
-            </Switch>
+                <Switch>
+                    <Route exact path="/">
+                        <Intro/>
+                        <ItemListContainer greeting="Filtra tus productos preferidos" listaProductos={items}/>
+                    </Route>
+                    <Route path="/productos/:url">
+                        <ItemDetailContainer listaProductos={items}/>
+                    </Route>
+                    <Route exact path="/categorias/:id">
+                        <Intro/>
+                        <ItemListContainer greeting="Filtra tus productos preferidos" listaProductos={items}/>
+                    </Route>
+                    <Route path="/elementos">
+                        <Elementos/>
+                    </Route>
+                    <Route path="/ofertas">
+                        <Ofertas/>
+                    </Route>
+                    <Route path="/carrito">
+                        <Cart/>
+                    </Route>
+                    <Route path="/mi-cuenta">
+                        <MiCuenta/>
+                    </Route>
+                    <Route path="/contacto">
+                        <Contacto/>
+                    </Route>
+                    <Route path="/blog">
+                        <Blog/>
+                    </Route>
+                    <Route path="/finalizar-compra">
+                        <BuyCart/>
+                    </Route>
+                </Switch>
         </main>
     )
 }

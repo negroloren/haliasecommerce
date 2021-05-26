@@ -1,9 +1,11 @@
 import React from 'react'
+import Hubspot from './Hubspot'
 import NavBarFooter from './NavBarFooter'
 
 const Footer = () => {
     return (
         <footer>
+            <Hubspot/>
             <div className="footer">
                 <div className="footer_column">
                     <h3>Ingresos Recientes:</h3>

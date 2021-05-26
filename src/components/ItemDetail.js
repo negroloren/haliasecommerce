@@ -3,6 +3,7 @@ import ItemCount from './ItemCount'
 import bookmark from '../imagenes/bookmark.svg'
 import CartContext from './CartContext'
 
+import { motion } from "framer-motion"
 
 const ItemDetail = ({item,identificador,titulo,precio,imagen,categoria,descripcion,catalogo,stock,url,inicial}) => {
     
@@ -12,7 +13,9 @@ const ItemDetail = ({item,identificador,titulo,precio,imagen,categoria,descripci
     return (
             <div className="item-detalle">
                 <div className="slider-img-producto"></div>
-                <img src={imagen} alt={titulo}/>
+                <div className="container-img-producto">
+                    <img src={imagen} alt={titulo}/>
+                </div>
                 <div className="descripcion_producto">
                     <h3>{titulo}</h3>
                     <p>{descripcion}</p>

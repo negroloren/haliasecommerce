@@ -4,11 +4,11 @@ import BuyerForm from './BuyerForm';
 import CartContext from './CartContext'
 import CartDetail from './CartDetail';
 import ItemCarrito from './ItemCarrito'
-
+import {motion} from 'framer-motion'
 
 const Cart = () => {
 
-    const { cart, total, clearItem } = useContext(CartContext)
+    const { cart, total, clearItem, setCart } = useContext(CartContext)
     const [vaciar, setVaciar] = useState(false)
     const [formulario, setformulario] = useState(false)
 
@@ -22,7 +22,11 @@ const Cart = () => {
 
 
     return (
-            <div className="intro">
+            <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="intro">
                 <h1>Carrito</h1>
                 <div className="container_carrito">
                     <div className="item_carrito">
@@ -85,7 +89,7 @@ const Cart = () => {
                             )
                         }
                 </div>
-            </div>
+            </motion.div>
     )
 }
 

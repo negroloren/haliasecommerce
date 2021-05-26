@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../imagenes/halias-logo.png';
 import NavBar from "./NavBar";
 import {NavLink} from 'react-router-dom'
+import Dolar from './Dolar';
 
 
 const Header = () => {
@@ -12,6 +13,7 @@ const Header = () => {
             <div className="container_nav">
                 <NavBar />
             </div>
+            <Dolar/>
         </header>
     )
 }
